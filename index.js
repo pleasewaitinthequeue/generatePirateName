@@ -11,19 +11,25 @@ const firstNames = ["Lady", "Dirty", "Squidlips", "Bowman", "Buccaneer", "Two To
 const middleNames = ["Creeper", "Jim", "Storm", "John", "Legs", "O'", "Rat", "Jack", "George", "Head", "Cackle", "Patch", "Bones", "Plank", "Greedy", "Sea", "Mama", "Spike", "Squiffy", "Gold", "Yellow", "Felony", "Eddit", "Bay", "Thomas", "Spot"];
 const lastNames = ["Magoo", "Byrd", "Jackson", "Sparrow", "McCracken", "Jones", "Ned Head", "Bar", "O'Fish", "Kidd", "O'Malley", "Barnacle", "Holystone", "Hornswaggle", "McStinky", "Swashbuckler", "Sea Wolf", "Beard", "Chumbucket", "Rivers", "Morgan", "Tuna Breath", "Three Gates", "Bailey", "the Wrangler", "Of Dark Water"];
 
-app.intent("return_name_random", (conv) =>{
+app.intent('Default Welcome Intent', (conv) =>{
+	var message;
+	switch(
+	conv.ask(message);
+});
+
+app.intent("Random Intent", (conv) =>{
   // LOGIC GOES IN HERE
   var message;
 
-  let first = firstNames[Math.floor(Math.random()*firstNames.length)];
-  let middle = middleNames[Math.floor(Math.random()*middleNames.length)];
-  let last = lastNames[Math.floor(Math.random()*lastNames.length)];
+  let first = firstNames[randBetween(0, firstNames.length)];
+  let middle = middleNames[randBetween(0, middleNames.length)];
+  let last = lastNames[randBetween(0, lastNames.length)];
 
   message = `Your random pirate name is ${first} ${middle} ${last} argggggggg!`;
   conv.close(message);
 });
 
-app.intent("return_name_specific", (conv, {fi, mi, li}) =>{
+app.intent("Specific Intent", (conv, {fi, mi, li}) =>{
   var message;
   
   let first = firstNames[getPositionInAlphabet(fi)];
@@ -34,10 +40,13 @@ app.intent("return_name_specific", (conv, {fi, mi, li}) =>{
   conv.close(message);
 });
 
-function getPositionInAlphabet(incomingLetter) {
+randBetween = (min, max) => {
+	return Math.floor(Math.random() * (max - min)) + min;
+}
+
+getPositionInAlphabet = (incomingLetter) => {
   let alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-  
-  return alphabet.indexOf(incomingLetter);
+  return alphabet.indexOf(incomingLetter.toLowerCase());
 }
 
 exports.generatePirateName = functions.https.onRequest(app);
