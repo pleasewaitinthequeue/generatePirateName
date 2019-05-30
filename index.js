@@ -53,11 +53,11 @@ app.intent("Specific Intent", (conv, {fi, mi, li}) =>{
   conv.close(message);
 });
 
-randBetween = (min, max) => {
+const randBetween = (min, max) => {
 	return Math.floor(Math.random() * (max - min)) + min;
 }
 
-getPositionInAlphabet = (incomingLetter) => {
+const getPositionInAlphabet = (incomingLetter) => {
   let alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
   return alphabet.indexOf(incomingLetter.toLowerCase());
 }
