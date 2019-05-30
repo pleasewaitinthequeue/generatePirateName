@@ -13,7 +13,20 @@ const lastNames = ["Magoo", "Byrd", "Jackson", "Sparrow", "McCracken", "Jones", 
 
 app.intent('Default Welcome Intent', (conv) =>{
 	var message;
-	switch(
+	switch(randBetween(1,3)){
+		case 1:
+			message = `Would ye be liking a random, or a specific name based on yer initials?`;
+			break;
+		case 2
+			message = `Avast, would ye prefer a random name, or a specific name based on yer initials?`;
+			break;
+		case 3:
+			message = `Would ye fancy, or a specific name based on yer initials? aaaaaaarrrrrrrgggggg`;
+			break;
+		default:
+			message = `Would ye be liking a random, or a specific name based on yer initials?`;
+			break;
+	}
 	conv.ask(message);
 });
 
