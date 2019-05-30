@@ -17,7 +17,7 @@ app.intent('Default Welcome Intent', (conv) =>{
 		case 1:
 			message = `Would ye be liking a random, or a specific name based on yer initials?`;
 			break;
-		case 2
+		case 2:
 			message = `Avast, would ye prefer a random name, or a specific name based on yer initials?`;
 			break;
 		case 3:
