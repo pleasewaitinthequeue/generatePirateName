@@ -40,4 +40,4 @@ function getPositionInAlphabet(incomingLetter) {
   return alphabet.indexOf(incomingLetter);
 }
 
-exports.generateRandomName = functions.https.onRequest(app);
+exports.generatePirateName = functions.https.onRequest(app);
