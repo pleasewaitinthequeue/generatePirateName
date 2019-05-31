@@ -27,6 +27,7 @@ app.intent('Default Welcome Intent', (conv) =>{
 			message = `Would ye be liking a random, or a specific name based on yer initials?`;
 			break;
 	}
+	console.log(message);
 	conv.ask(message);
 });
 
@@ -39,6 +40,7 @@ app.intent("Random Intent", (conv) =>{
   let last = lastNames[randBetween(0, lastNames.length)];
 
   message = `Your random pirate name is ${first} ${middle} ${last} argggggggg!`;
+  console.log(message);
   conv.close(message);
 });
 
@@ -50,6 +52,7 @@ app.intent("Specific Intent", (conv, {fi, mi, li}) =>{
   let last = lastNames[getPositionInAlphabet(li)];
   
   message = `Your specific pirate name is ${first} ${middle} ${last} using initials ${fi} ${mi} ${li} argggggggg!`;
+  console.log(message);
   conv.close(message);
 });
 
