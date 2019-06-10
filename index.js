@@ -12,19 +12,20 @@ const middleNames = ["Creeper", "Jim", "Storm", "John", "Legs", "O'", "Rat", "Ja
 const lastNames = ["Magoo", "Byrd", "Jackson", "Sparrow", "McCracken", "Jones", "Ned Head", "Bar", "O'Fish", "Kidd", "O'Malley", "Barnacle", "Holystone", "Hornswaggle", "McStinky", "Swashbuckler", "Sea Wolf", "Beard", "Chumbucket", "Rivers", "Morgan", "Tuna Breath", "Three Gates", "Bailey", "the Wrangler", "Of Dark Water"];
 
 app.intent('Default Welcome Intent', (conv) =>{
-	var message;
-	switch(randBetween(1,3)){
+	let message;
+	let random = randBetween(1,3);
+	switch(){
 		case 1:
-			message = `Would ye be liking a random, or a specific name based on yer initials?`;
+			message = "Would ye be liking a random, or a specific name based on yer initials?";
 			break;
 		case 2:
-			message = `Avast, would ye prefer a random name, or a specific name based on yer initials?`;
+			message = "Avast, would ye prefer a random name, or a specific name based on yer initials?";
 			break;
 		case 3:
-			message = `Would ye fancy, or a specific name based on yer initials? aaaaaaarrrrrrrgggggg`;
+			message = "Would ye fancy, or a specific name based on yer initials? aaaaaaarrrrrrrgggggg";
 			break;
 		default:
-			message = `Would ye be liking a random, or a specific name based on yer initials?`;
+			message = "Would ye be liking a random, or a specific name based on yer initials?";
 			break;
 	}
 	console.log(message);
@@ -57,7 +58,8 @@ app.intent("Specific Intent", (conv, {fi, mi, li}) =>{
 });
 
 const randBetween = (min, max) => {
-	return Math.floor(Math.random() * (max - min)) + min;
+	let rand = Math.floor(Math.random() * (max - min)) + min;
+	return rand;
 }
 
 const getPositionInAlphabet = (incomingLetter) => {
