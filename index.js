@@ -1,10 +1,11 @@
 'use strict';
 
-const {dialogflow} = require('actions-on-google');
-
+const { dialogflow } = require('actions-on-google');
+const admin = require('firebase-admin');
 const functions = require('firebase-functions');
-
 const app = dialogflow({debug:true});
+
+admin.initializeApp();
 
 // ARRAYS THAT HOLD PIRATE NAMES
 const firstNames = ["Lady", "Dirty", "Squidlips", "Bowman", "Buccaneer", "Two Toes", "Sharkbait", "Old", "Peg Leg", "Fluffbucket", "Scallywag", "Bucko", "Dead man", "Matey", "Jolly", "Stinky", "Bloody", "Miss", "Mad", "Red", "Captain", "Bretheren", "Rapscallion", "Landlubber", "Wench", "Freebooter"];
