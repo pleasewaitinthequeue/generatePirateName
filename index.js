@@ -14,7 +14,7 @@ const lastNames = ["Magoo", "Byrd", "Jackson", "Sparrow", "McCracken", "Jones", 
 app.intent('Default Welcome Intent', (conv) =>{
 	let message;
 	let random = randBetween(1,3);
-	switch(){
+	switch(random){
 		case 1:
 			message = "Would ye be liking a random, or a specific name based on yer initials?";
 			break;
